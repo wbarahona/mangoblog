@@ -8,6 +8,16 @@
 	
 	<link rel="stylesheet" href="skins/cutline/assets/styles/style.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="skins/cutline/assets/styles/custom.css" type="text/css" media="screen" />
+	
+	<!--- BOOTSTRAP INCLUDES --->
+	<link rel="stylesheet" href="<mango:Blog skinurl />assets/styles/bootstrap-responsive.min.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="<mango:Blog skinurl />assets/styles/bootstrap.min.css" type="text/css" media="screen" />
+
+	<!--- HTML5SHIV INCLUDE --->
+	<!--[if IE]>
+		<script src="<mango:Blog skinurl />assets/scripts/html5shiv.js"></script>
+	<![endif]-->
+
 	<!--[if lte IE 7]>
 	<link rel="stylesheet" type="text/css" href="skins/cutline/assets/styles/ie7.css" media="screen" />
 	<![endif]-->

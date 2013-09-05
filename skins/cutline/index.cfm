@@ -10,6 +10,16 @@
 	<meta name="description" content="<mango:Blog description />" />
 	<link rel="stylesheet" href="<mango:Blog skinurl />assets/styles/style.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="<mango:Blog skinurl />assets/styles/custom.css" type="text/css" media="screen" />
+	
+	<!--- BOOTSTRAP INCLUDES --->
+	<link rel="stylesheet" href="<mango:Blog skinurl />assets/styles/bootstrap-responsive.min.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="<mango:Blog skinurl />assets/styles/bootstrap.min.css" type="text/css" media="screen" />
+
+	<!--- HTML5SHIV INCLUDE --->
+	<!--[if IE]>
+		<script src="<mango:Blog skinurl />assets/scripts/html5shiv.js"></script>
+	<![endif]-->
+
 	<!--[if lte IE 7]>
 	<link rel="stylesheet" type="text/css" href="<mango:Blog skinurl />assets/styles/ie7.css" media="screen" />
 	<![endif]-->
