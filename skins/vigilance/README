@@ -1,0 +1,14 @@
+Thanks for downloading the Vigilance Theme for MangoBlog. 
+This is an adaptation of the theme produced by Jethro for Wordpress, see the original here: http://themes.jestro.com/vigilance/
+
+Install Instructions:
+1. Unzip to {mangoblog_install_dir}/skins/
+2. Edit sidebar.cfm lines 17 & 18 updating to your twitter account and email subscription location.
+3. In your MangoBlog admin go to the themes section and select the Vigilance Theme.
+
+Feel free to send me any questions or comments.
+
+Benedict Lowndes
+b@lowndes.net
+http://www.lowndes.net
+http://twitter.com/benlowndes

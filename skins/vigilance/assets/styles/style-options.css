@@ -1,0 +1,63 @@
+ 
+/*Background
+------------------------------------------------------------ */
+body { background: #a39C8a; }
+#wrapper{
+	background: #fff;
+	padding: 0 20px 10px 20px;
+	border-left: 4px solid #9a927f;
+	border-right: 4px solid #9a927f;
+	}
+/*Links 
+------------------------------------------------------------ */
+#content a:link, #content a:visited { color: #772124; }
+#sidebar a:link, #sidebar a:visited { color: #772124; }
+h1#title a:hover, div#title a:hover { color: #772124; }
+#nav .page_item a:hover { 
+  color: #772124;
+	border-top: 4px solid #772124;
+	}
+#nav .current_page_item a:link, #nav .current_page_item a:visited, #nav .current_page_item a:hover, #nav .current_page_parent a:link, #nav .current_page_parent a:visited, #nav .current_page_parent a:hover, #nav .current_page_ancestor a:link, #nav .current_page_ancestor a:visited, #nav .current_page_ancestor a:hover {
+	color: #772124;
+	border-top: 4px solid #772124;
+	}
+.post-header h1 a:hover, .post-header h2 a:hover { color: #772124; }
+.comments a:hover { color: #772124; }
+.meta a:hover { color: #772124; }
+.highlight-box { background: #772124;	}
+.post-footer a:hover { color: #772124; }
+#footer a:hover { color: #772124; }
+/*Hover 
+------------------------------------------------------------ */
+#content .entry a:hover { color: #58181b; }
+#wrapper #sidebar a:hover { color: #58181b; }
+/*Reset Specific Link Colors
+------------------------------------------------------------ */
+#content .post-header h1 a:link, #content .post-header h1 a:visited, #content .post-header h2 a:link, #content .post-header h2 a:visited  { color: #444; }
+#content .post-header h1 a:hover, #content .post-header h2 a:hover { color: #772124; }
+#content .comments a { color: #757575;	}
+#content .comments a:hover { color: #772124; }
+#content .meta a:link, #content .meta a:visited { color: #666; }
+#content .meta a:hover { color: #772124; }
+#content .post-footer a:link, #content .post-footer a:visited { color: #333; }
+#content .c-permalink a:link, #content .c-permalink a:visited { color: #ccc; }
+#content .reply a:link, #reply .c-permalink a:visited { color: #aaa; }
+#content .reply a:hover { color: #772124; }
+#footer a:link, #footer a:visited { color: #666; }
+#footer a:hover { color: #772124; }
+
+.error {
+	color: #FC3307;
+	border: 1px solid #FC3307;
+}
+
+.message {
+	color: #090;
+	border: 1px solid #7ed500;
+}
+
+p.error, p.message {
+	padding: 1em;
+	font-weight: bold;
+	margin-top: 2em;
+}

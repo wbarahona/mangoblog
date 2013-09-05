@@ -1,0 +1,85 @@
+"Severity","ThreadID","Date","Time","Application","Message"
+"ERROR","web-0","08/30/2013","13:36:46","","invalid component definition, can't find components.Message
+	at railo.runtime.component.ComponentLoader.load(ComponentLoader.java:272):272
+	at railo.runtime.component.ComponentLoader.loadComponent(ComponentLoader.java:39):39
+	at railo.runtime.PageContextImpl.loadComponent(PageContextImpl.java:2976):2976
+	at railo.runtime.functions.other.CreateObject.doComponent(CreateObject.java:152):152
+	at railo.runtime.functions.other.CreateObject.call(CreateObject.java:57):57
+	at railo.runtime.functions.other.CreateObject.call(CreateObject.java:37):37
+	at application_cfc$cf.udfCall(/opt/railo/tomcat/webapps/ROOT/Application.cfc:127):127
+	at railo.runtime.type.UDFImpl.implementation(UDFImpl.java:103):103
+	at railo.runtime.type.UDFImpl._call(UDFImpl.java:371):371
+	at railo.runtime.type.UDFImpl.call(UDFImpl.java:284):284
+	at railo.runtime.ComponentImpl._call(ComponentImpl.java:607):607
+	at railo.runtime.ComponentImpl._call(ComponentImpl.java:490):490
+	at railo.runtime.ComponentImpl.call(ComponentImpl.java:1781):1781
+	at railo.runtime.listener.ModernAppListener.call(ModernAppListener.java:346):346
+	at railo.runtime.listener.ModernAppListener.onError(ModernAppListener.java:333):333
+	at railo.runtime.PageContextImpl.execute(PageContextImpl.java:2265):2265
+	at railo.runtime.PageContextImpl.execute(PageContextImpl.java:2222):2222
+	at railo.runtime.engine.CFMLEngineImpl.serviceCFML(CFMLEngineImpl.java:315):315
+	at railo.loader.servlet.CFMLServlet.service(CFMLServlet.java:29):29
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:728):728
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305):305
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210):210
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:222):222
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123):123
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472):472
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171):171
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:99):99
+	at mod_cfml.core.invoke(core.java:132):132
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:936):936
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118):118
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:407):407
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1004):1004
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:589):589
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:310):310
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source):-1
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source):-1
+	at java.lang.Thread.run(Unknown Source):-1
+"
+"ERROR","web-0","09/05/2013","22:27:42","","Server returned HTTP response code: 403 for URL: http://www.mangoblog.org/services/Update.cfc?wsdl
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source):-1
+	at java.net.URL.openStream(Unknown Source):-1
+	at oracle.xml.parser.v2.XMLReader.openURL(XMLReader.java:2366):2366
+	at oracle.xml.parser.v2.XMLReader.pushXMLReader(XMLReader.java:228):228
+	at oracle.xml.parser.v2.XMLParser.parse(XMLParser.java:203):203
+	at oracle.xml.jaxp.JXDocumentBuilder.parse(JXDocumentBuilder.java:155):155
+	at org.apache.axis.utils.XMLUtils.newDocument(XMLUtils.java:369):369
+	at org.apache.axis.utils.XMLUtils.newDocument(XMLUtils.java:420):420
+	at org.apache.axis.wsdl.symbolTable.SymbolTable.populate(SymbolTable.java:482):482
+	at org.apache.axis.wsdl.gen.Parser$WSDLRunnable.run(Parser.java:361):361
+	at java.lang.Thread.run(Unknown Source):-1
+	at railo.runtime.op.Caster.toPageException(Caster.java:2933):2933
+	at railo.runtime.net.rpc.client.RPCClient.run(RPCClient.java:146):146
+	at railo.runtime.net.rpc.client.RPCClient.<init>(RPCClient.java:137):137
+	at railo.runtime.net.rpc.client.RPCClient.<init>(RPCClient.java:123):123
+	at railo.runtime.tag.Invoke.doWebService(Invoke.java:239):239
+	at railo.runtime.tag.Invoke.doEndTag(Invoke.java:186):186
+	at admin.datasets.downloadableskins_cfm$cf.call(/opt/railo/tomcat/webapps/ROOT/admin/datasets/downloadableSkins.cfm:10):10
+	at railo.runtime.PageContextImpl.doInclude(PageContextImpl.java:802):802
+	at railo.runtime.PageContextImpl.doInclude(PageContextImpl.java:754):754
+	at railo.runtime.listener.ModernAppListener._onRequest(ModernAppListener.java:183):183
+	at railo.runtime.listener.MixedAppListener.onRequest(MixedAppListener.java:18):18
+	at railo.runtime.PageContextImpl.execute(PageContextImpl.java:2255):2255
+	at railo.runtime.PageContextImpl.execute(PageContextImpl.java:2222):2222
+	at railo.runtime.engine.CFMLEngineImpl.serviceCFML(CFMLEngineImpl.java:315):315
+	at railo.loader.servlet.CFMLServlet.service(CFMLServlet.java:29):29
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:728):728
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305):305
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210):210
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:222):222
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123):123
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171):171
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:99):99
+	at mod_cfml.core.invoke(core.java:132):132
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:936):936
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118):118
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:407):407
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1004):1004
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:589):589
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:310):310
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source):-1
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source):-1
+	at java.lang.Thread.run(Unknown Source):-1
+"

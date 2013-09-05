@@ -1,0 +1,77 @@
+/*
+Theme Name:	Vigilance PRO *Child Theme*
+Theme URI: 	http://themes.jestro.com/vigilance/
+Description: 	Custom child theme for Vigilance PRO Members. Make all your custom changes in the <code>themes/myvigilance</code> folder.
+Version: 1.30
+Author:		Drew Strojny
+Author URI:	http://www.jestro.com
+Template: vigilance
+*/
+
+/* Import Stylesheets, don't remove these.
+-----------------------------------------------------------*/
+@import url("master.css");
+@import url("style-options.css");
+
+/* Required Wordpress Classes, don't remove these.
+-----------------------------------------------------------*/
+.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+  }
+.alignleft { float: left; }
+.alignright { float: right; }
+
+/* Page Templates
+-----------------------------------------------------------*/
+
+#content.no-sidebar { width: 920px; }
+#content.no-sidebar li.comment { width: 560px; }
+
+body.page-template-left-sidebar-php #sidebar { 
+  width: 300px;
+  float: left; 
+  padding: 0;
+}
+body.page-template-left-sidebar-php #content { 
+  width: 600px;
+  float: right; 
+  padding: 20px 0 20px 20px;
+}
+
+/* Make all custom CSS changes BELOW this line
+-----------------------------------------------------------*/
+/* Example: Change the sidebar background to blue:
+#sidebar {
+	background: blue;
+	}
+*/
+
+#twitter_update_list a  {
+	background: none;
+	display: inline;
+	padding: 0;
+}
+#fuzzyTime {
+	display: block;
+}
+#followMe {
+	font-size:1.4em;
+}
+
+#flickr img {
+	position: relative;
+	border: 1px solid #ebebeb;
+	background: none;
+	padding: 4px;
+	margin-top: 5px;
+	/* margin: 4px 7px 4px 4px; */	
+}
+
+#flickr img:hover	{
+	border: 1px solid #c5c5c5; 
+	background: none;	
+}
+
+#flickr a:hover { background-color: transparent; border: none }

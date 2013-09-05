@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<schedule>
+    <task autoDelete="false" hidden="false" interval="daily"
+        name="sendDigestSubscriptions_CFB82E6941D806EE6292A1DDBCA508B8"
+        port="-1" proxyHost="" proxyPassword="" proxyPort="0"
+        proxyUser="" publish="false" readonly="false" resolveUrl="false"
+        startDate="{d '2013-08-30'}" startTime="{t '12:56:00'}"
+        timeout="1000000" url="http://192.241.180.24/generic.cfm?action=event&amp;event=sendDigestSubscriptions"/>
+</schedule>
