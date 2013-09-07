@@ -8,12 +8,14 @@
 	<title><mango:Blog title /> &#8212; <mango:Blog tagline /></title>
 	<meta name="generator" content="Mango <mango:Blog version />" />
 	<meta name="description" content="<mango:Blog description />" />
-	<link rel="stylesheet" href="<mango:Blog skinurl />assets/styles/style.css" type="text/css" media="screen" />
+	<!--- <link rel="stylesheet" href="<mango:Blog skinurl />assets/styles/style.css" type="text/css" media="screen" /> --->
 	<link rel="stylesheet" href="<mango:Blog skinurl />assets/styles/custom.css" type="text/css" media="screen" />
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	
 	<!--- BOOTSTRAP INCLUDES --->
 	<link rel="stylesheet" href="<mango:Blog skinurl />assets/styles/bootstrap-responsive.min.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="<mango:Blog skinurl />assets/styles/bootstrap.min.css" type="text/css" media="screen" />
+	<script type="text/javascript" src="<mango:Blog skinurl />assets/scripts/bootstrap.min.js"></script>
 
 	<!--- HTML5SHIV INCLUDE --->
 	<!--[if IE]>
@@ -37,20 +39,41 @@
 <mango:Event name="beforeHtmlBodyStart" />
 <div id="container">
 
-	<div id="masthead">
+	<div id="masthead" class="jumbotron">
 		<h1><a href="<mango:Blog url />"><mango:Blog title /></a></h1>
 		<h3><mango:Blog tagline /></h3>
 	</div>
 
-	<ul id="nav">
-		<li><a class="current" href="<mango:Blog basePath />">front page</a></li>
+	<ul id="nav" class="navbar navbar-default nav">
+		<li class="active"><a class="current" href="<mango:Blog basePath />">front page</a></li>
 		<mango:Pages><mango:Page>
 			<li><a href="<mango:PageProperty link>" title="<mango:PageProperty title />">
 				<mango:PageProperty title /></a></li>
 			</mango:Page></mango:Pages>
 		<li class="rss"><a href="<mango:Blog rssurl />">RSS</a></li>
+		<li>
+			<form name="searchForm" id="search_form" method="get" action="<mango:Blog searchUrl />" class="navbar-form navbar-left">
+				<input type="text" class="search_input form-control" name="term" value="Search It" id="term" onfocus="if (this.value == 'Search It') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search It';}" />
+				<input type="hidden" id="searchsubmit" value="Search" />
+			</form>
+		</li>
+		<li class="nav navbar-right">
+			<ul class="nav">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<mangox:PodGroup locationId="sidebar" template="index">
+							<mangox:TemplatePod id="blog-description" title="About">
+							<p><mango:Blog description descriptionParagraphFormat /></p>
+							</mangox:TemplatePod>
+							<template:sidebar />
+						</mangox:PodGroup>
+					</ul>
+				</li>
+			</ul>
+		</li>
 	</ul>
-	
+	<br />
 	<div id="header_img">
 		<img src="<mango:Blog skinurl />assets/images/header_<mangox:Random items='1.jpg,2.jpg,3.jpg,4.jpg'/>" width="770" height="140" alt="<mango:Blog title />" title="<mango:Blog title />" />
 	</div>
@@ -70,8 +93,8 @@
 			<div class="entry-footer entry">
 			<mango:Event name="beforePostContentEnd" template="index" mode="excerpt" />
 			</div>
-			<p class="tagged"><span class="add_comment"><mango:PostProperty ifcommentsallowed>&rarr; <a href="<mango:PostProperty link />#respond" title="Comment on <mango:PostProperty title />"><mango:PostProperty ifCommentCountGT="0"><mango:PostProperty commentCount /> Comment<mango:PostProperty ifCommentCountGT="1">s</mango:PostProperty></mango:PostProperty><mango:PostProperty ifCommentCountLT="1">No Comments</mango:PostProperty></a></mango:PostProperty></span><strong>Tags:</strong> 
-			<mango:Categories><mango:Category><a href="<mango:CategoryProperty link />" title="View all posts in  <mango:CategoryProperty title />" rel="category tag"><mango:CategoryProperty title /></a> <mango:Category ifCurrentIsNotLast>&middot; </mango:Category></mango:Category></mango:Categories>
+			<p class="tagged"><span class="add_comment label label-primary"><mango:PostProperty ifcommentsallowed>&rarr; <a href="<mango:PostProperty link />#respond" title="Comment on <mango:PostProperty title />"><mango:PostProperty ifCommentCountGT="0"><mango:PostProperty commentCount /> Comment<mango:PostProperty ifCommentCountGT="1">s</mango:PostProperty></mango:PostProperty><mango:PostProperty ifCommentCountLT="1">No Comments</mango:PostProperty></a></mango:PostProperty></span><strong>Tags:</strong> 
+			<mango:Categories><mango:Category><a href="<mango:CategoryProperty link />" title="View all posts in  <mango:CategoryProperty title />" rel="category tag" class="label label-success"><mango:CategoryProperty title /></a> <mango:Category ifCurrentIsNotLast>&middot; </mango:Category></mango:Category></mango:Categories>
 			</p>
 			<div class="clear"></div>
 			</mango:Post>
@@ -86,7 +109,7 @@
 <div class="clear flat"></div>
 </div>
 
-<div id="sidebar">
+<!--- <div id="sidebar">
 	<ul class="sidebar_list">
 		<mangox:PodGroup locationId="sidebar" template="index">
 			<mangox:TemplatePod id="blog-description" title="About">
@@ -95,10 +118,10 @@
 			<template:sidebar />
 		</mangox:PodGroup>	
 	</ul>
-</div>	
+</div>	 --->
 	</div>
-	<div id="footer"><mango:Event name="afterFooterStart" />
-		<p><mango:Blog title /> &mdash; <a href="http://www.mangoblog.org" title="Mango Blog - A free ColdFusion blog engine">Powered by Mango Blog</a> &mdash; Design by <a href="http://www.tubetorial.com">Chris Pearson</a> ported by <a href="http://www.asfusion.com">AsFusion</a></p>
+	<div id="footer" class="well well-lg"><mango:Event name="afterFooterStart" />
+		<p>2013 &dash; &reg; <mango:Blog title /> &mdash; Willmer Barahona Web Develpment &mdash; Proudly Honduran! <a target="_blank" href="http://www.visitehonduras.com">Visit Honduras</a></p>
 	<mango:Event name="beforeFooterEnd" />
 	</div>
 </div>

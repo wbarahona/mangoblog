@@ -48,7 +48,7 @@ http://www.talkingtree.com/blog/index.cfm/2005/11/15/TagCloudPod
 		<cfelse>
 			<cfset class="smallTag">
 		</cfif>
-         <cfoutput><a href="#request.blog_basepath##items[i].getUrl()#"><span class="#class#">#lcase(xmlformat(items[i].getTitle()))#</span></a> </cfoutput>
+         <cfoutput><a href="#request.blog_basepath##items[i].getUrl()#" class="cloud-item"><span class="label #class#">#lcase(xmlformat(items[i].getTitle()))#</span></a> </cfoutput>
       </cfloop>
 
 	</cfif>

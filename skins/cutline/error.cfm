@@ -6,12 +6,14 @@
 <head profile="http://gmpg.org/xfn/11">
 	<title><mango:Message title /> &#8212; Error</title>
 	
-	<link rel="stylesheet" href="skins/cutline/assets/styles/style.css" type="text/css" media="screen" />
+	<!--- <link rel="stylesheet" href="skins/cutline/assets/styles/style.css" type="text/css" media="screen" /> --->
 	<link rel="stylesheet" href="skins/cutline/assets/styles/custom.css" type="text/css" media="screen" />
-	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
 	<!--- BOOTSTRAP INCLUDES --->
 	<link rel="stylesheet" href="<mango:Blog skinurl />assets/styles/bootstrap-responsive.min.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="<mango:Blog skinurl />assets/styles/bootstrap.min.css" type="text/css" media="screen" />
+	<script type="text/javascript" src="<mango:Blog skinurl />assets/scripts/bootstrap.min.js"></script>
 
 	<!--- HTML5SHIV INCLUDE --->
 	<!--[if IE]>
@@ -34,29 +36,39 @@
 		<h1>Error</h1>
 	</div>
 
-	<ul id="nav">
+	<ul id="nav" class="navbar navbar-default nav">
 	
 	</ul>
-	
+	<br />
 	<div id="header_img">
 		<img src="skins/cutline/assets/images/header_4.jpg" width="770" height="140" />
 	</div>
 	<div id="content_box">
 	
 		<div id="content" class="pages">
-			<h2><mango:Message title /></h2>
+<!--- 			<h2><mango:Message title /></h2>
 			<div class="entry">
-			<mango:Message text />
-			<mango:Message data />
+				<mango:Message text />
+				<mango:Message data />
+			</div>
+			 --->
+
+			<div class="panel panel-warning">
+				<div class="panel-heading">
+					<h3 class="panel-title"><mango:Message title /></h3>
+				</div>
+				<div class="panel-body">
+					<p class="text-warning"><mango:Message text /><mango:Message data /></p><br />
+					<p class="text-warning">Please lemme know what happened to my <a href="mailto:errors-wbarahona@gmail.com" class="label label-warning">mailbox</a></p>
+				</div>
 			</div>
 			<div class="clear"></div>
-
-<div class="clear flat"></div>
-</div>
+			<div class="clear flat"></div>
+		</div>
 
 	</div>
-	<div id="footer">
-		<p><a href="http://www.mangoblog.org" title="Mango Blog - A free ColdFusion blog engine">Powered by Mango Blog</a> &mdash; Design by <a href="http://www.tubetorial.com">Chris Pearson</a> ported by <a href="http://www.asfusion.com">AsFusion</a></p>
+	<div id="footer" class="well well-lg">
+		<p>2013 &dash; &reg; <mango:Blog title /> &mdash; Willmer Barahona Web Develpment &mdash; Proudly Honduran! <a target="_blank" href="http://www.visitehonduras.com">Visit Honduras</a></p>
 	</div>
 </div>
 </body>

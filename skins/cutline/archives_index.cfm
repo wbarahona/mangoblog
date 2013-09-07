@@ -16,12 +16,14 @@
 		<meta name="description" content="<mango:Blog description />" />
 	</mango:PageProperty>
 	
-	<link rel="stylesheet" href="<mango:Blog skinurl />assets/styles/style.css" type="text/css" media="screen" />
+	<!--- <link rel="stylesheet" href="<mango:Blog skinurl />assets/styles/style.css" type="text/css" media="screen" /> --->
 	<link rel="stylesheet" href="<mango:Blog skinurl />assets/styles/custom.css" type="text/css" media="screen" />
-	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
 	<!--- BOOTSTRAP INCLUDES --->
 	<link rel="stylesheet" href="<mango:Blog skinurl />assets/styles/bootstrap-responsive.min.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="<mango:Blog skinurl />assets/styles/bootstrap.min.css" type="text/css" media="screen" />
+	<script type="text/javascript" src="<mango:Blog skinurl />assets/scripts/bootstrap.min.js"></script>
 
 	<!--- HTML5SHIV INCLUDE --->
 	<!--[if IE]>
@@ -45,20 +47,41 @@
 <body class="custom">
 <mango:Event name="beforeHtmlBodyStart" />
 <div id="container">
-	<div id="masthead">
+	<div id="masthead" class="jumbotron">
 		<h1><a href="<mango:Blog url />"><mango:Blog title /></a></h1>
 		<h3><mango:Blog tagline /></h3>
 	</div>
 
-	<ul id="nav">
+	<ul id="nav" class="navbar navbar-default nav">
 		<li><a href="<mango:Blog basePath />">front page</a></li>
 		<mango:Pages parentPage=""><mango:Page>
 			<li><a href="<mango:PageProperty link>" title="<mango:PageProperty title />">
 				<mango:PageProperty title /></a></li>
 			</mango:Page></mango:Pages>
 		<li class="rss"><a href="<mango:Blog rssurl />">RSS</a></li>
+		<li>
+			<form name="searchForm" id="search_form" method="get" action="<mango:Blog searchUrl />" class="navbar-form navbar-left">
+				<input type="text" class="search_input form-control" name="term" value="Search It" id="term" onfocus="if (this.value == 'Search It') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search It';}" />
+				<input type="hidden" id="searchsubmit" value="Search" />
+			</form>
+		</li>
+		<li class="nav navbar-right">
+			<ul class="nav">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<mangox:PodGroup locationId="sidebar-page" template="page">
+							<mangox:TemplatePod id="page-menu" title="Page Menu">
+							<template:pageMenu />
+							</mangox:TemplatePod>
+							<template:sidebar />
+						</mangox:PodGroup>
+					</ul>
+				</li>
+			</ul>
+		</li>
 	</ul>
-	
+	<br />
 	<div id="header_img">
 		<img src="<mango:Blog skinurl />assets/images/header_4.jpg" width="770" height="140" alt="<mango:Blog title />" title="<mango:Blog title />" />
 	</div>
@@ -160,7 +183,7 @@
 <div class="clear flat"></div>
 </div>
 		
-<div id="sidebar">
+<!--- <div id="sidebar">
 	<ul class="sidebar_list">
 		<mangox:PodGroup locationId="sidebar-page" template="page">
 			<mangox:TemplatePod id="page-menu" title="Page Menu">
@@ -169,11 +192,11 @@
 			<template:sidebar />
 		</mangox:PodGroup>	
 	</ul>
-	</div>
+	</div> --->
 	</div>
 
-	<div id="footer"><mango:Event name="afterFooterStart" />
-		<p><mango:Blog title /> &mdash; <a href="http://www.mangoblog.org" title="Mango Blog - A ColdFusion blog engine">Powered by Mango Blog</a> &mdash; Design by <a href="http://www.tubetorial.com">Chris Pearson</a> ported by <a href="http://www.asfusion.com">AsFusion</a></p>
+	<div id="footer" class="well well-lg"><mango:Event name="afterFooterStart" />
+		<p>2013 &dash; &reg; <mango:Blog title /> &mdash; Willmer Barahona Web Develpment &mdash; Proudly Honduran! <a target="_blank" href="http://www.visitehonduras.com">Visit Honduras</a></p>
 	<mango:Event name="beforeFooterEnd" />
 	</div>
 </div>

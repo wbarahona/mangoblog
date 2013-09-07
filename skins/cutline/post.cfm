@@ -15,12 +15,14 @@
 	<mango:PostProperty ifNotHasCustomField='meta-description'>
 		<meta name="description" content="<mango:Blog description />" />
 	</mango:PostProperty>
-	<link rel="stylesheet" href="<mango:Blog skinurl />assets/styles/style.css" type="text/css" media="screen" />
+	<!--- <link rel="stylesheet" href="<mango:Blog skinurl />assets/styles/style.css" type="text/css" media="screen" /> --->
 	<link rel="stylesheet" href="<mango:Blog skinurl />assets/styles/custom.css" type="text/css" media="screen" />
-	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
 	<!--- BOOTSTRAP INCLUDES --->
 	<link rel="stylesheet" href="<mango:Blog skinurl />assets/styles/bootstrap-responsive.min.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="<mango:Blog skinurl />assets/styles/bootstrap.min.css" type="text/css" media="screen" />
+	<script type="text/javascript" src="<mango:Blog skinurl />assets/scripts/bootstrap.min.js"></script>
 
 	<!--- HTML5SHIV INCLUDE --->
 	<!--[if IE]>
@@ -41,21 +43,48 @@
 </head>
 <body class="custom">
 <mango:Event name="beforeHtmlBodyStart" />
+<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=132156060303106";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+</div>
 <div id="container">
-	<div id="masthead">
+	<div id="masthead" class="jumbotron">
 		<h1><a href="<mango:Blog url />"><mango:Blog title /></a></h1>
 		<h3><mango:Blog tagline /></h3>
 	</div>
 
-	<ul id="nav">
+	<ul id="nav" class="navbar navbar-default nav">
 		<li><a href="<mango:Blog basePath />">front page</a></li>
 		<mango:Pages><mango:Page>
 			<li><a href="<mango:PageProperty link>" title="<mango:PageProperty title />">
 				<mango:PageProperty title /></a></li>
 			</mango:Page></mango:Pages>
 		<li class="rss"><a href="<mango:Blog rssurl />">RSS</a></li>
+		<li>
+			<form name="searchForm" id="search_form" method="get" action="<mango:Blog searchUrl />" class="navbar-form navbar-left">
+				<input type="text" class="search_input form-control" name="term" value="Search It" id="term" onfocus="if (this.value == 'Search It') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search It';}" />
+				<input type="hidden" id="searchsubmit" value="Search" />
+			</form>
+		</li>
+		<li class="nav navbar-right">
+			<ul class="nav">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<mangox:PodGroup locationId="sidebar" template="post">
+							<template:sidebar />
+						</mangox:PodGroup>	
+					</ul>
+				</li>
+			</ul>
+		</li>
 	</ul>
-	
+	<br />
 	<div id="header_img">
 		<img src="<mango:Blog skinurl />assets/images/header_2.jpg" width="770" height="140" alt="<mango:Blog title />" title="<mango:Blog title />" />
 	</div>
@@ -69,8 +98,27 @@
 			<div class="entry-footer entry">
 			<mango:Event name="beforePostContentEnd" template="post" mode="full" />
 			</div>
-			<p class="tagged"><strong>Tags:</strong> <mango:Categories><mango:Category><a href="<mango:CategoryProperty link />" title="View all posts in  <mango:CategoryProperty title />" rel="category tag"><mango:CategoryProperty title /></a> <mango:Category ifCurrentIsNotLast>&middot; </mango:Category></mango:Category></mango:Categories></p>
+			<p class="tagged"><strong>Tags:</strong> <mango:Categories><mango:Category><a href="<mango:CategoryProperty link />" title="View all posts in  <mango:CategoryProperty title />" rel="category tag" class="label label-success"><mango:CategoryProperty title /></a> <mango:Category ifCurrentIsNotLast>&middot; </mango:Category></mango:Category></mango:Categories></p>
 			<div class="clear"></div>
+		<div class="social-box panel panel-default">
+			<h5 class="panel-heading">Did you find interesting this post? Share it now:</h5>
+			<div class="share-box panel-body">
+				<!-- Place this tag where you want the share button to render. -->
+				<div class="g-plus" data-action="share" data-annotation="bubble"></div>
+
+				<!-- Place this tag after the last share tag. -->
+				<script type="text/javascript">
+				  (function() {
+				    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+				    po.src = 'https://apis.google.com/js/plusone.js';
+				    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+				  })();
+				</script>
+				<a href="https://twitter.com/share" class="twitter-share-button" data-via="twitterapi" data-lang="en">Tweet</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+				<fb:like href="<mango:Blog url />/<mango:PostProperty link>" width="450" show_faces="true" send="true"></fb:like>
+			</div>
+		</div>
 
 	<div id="comments">
 		<h3 class="comments_headers"><mango:PostProperty commentCount /> response<mango:PostProperty ifCommentCountGT="1">s</mango:PostProperty><mango:PostProperty ifCommentCountLT="1">s</mango:PostProperty><mango:PostProperty ifcommentsallowed> so far &darr;</mango:PostProperty></h3>
@@ -103,36 +151,45 @@
 		
 <mango:PostProperty ifcommentsallowed>
 	<!-- Comment Form -->
-	<h3 id="respond" class="comments_headers">Leave a Comment</h3>
 	<mango:Message ifMessageExists type="comment" status="error">
-		<p class="error">There was a problem: <mango:Message text /></p>
+		<div class="alert alert-dismissable alert-danger">
+			<button type="button" class="close" data-dismiss="alert">×</button>
+			<strong>Oh Snap!</strong><mango:Message text />
+		</div>
 	</mango:Message>
 	<mango:Message ifMessageExists type="comment" status="success">
-		<p class="message"><mango:Message text /></p>
+		<div class="alert alert-dismissable alert-success">
+			<button type="button" class="close" data-dismiss="alert">×</button>
+			<strong>Oh Snap!</strong><mango:Message text />
+		</div>
 	</mango:Message>
 	
-	<form method="post" action="#respond" id="comment_form">
-		<input type="hidden" name="action" value="addComment" />
-		<input type="hidden" name="comment_post_id" value="<mango:PostProperty id />" />
-		<input type="hidden" name="comment_parent" value="" />
-		<mango:AuthenticatedAuthor ifIsLoggedIn>
-			<p>You are logged in as <mango:AuthorProperty name /></p>
-			<input type="hidden" name="comment_name" value="<mango:AuthorProperty name />" />
-			<input type="hidden" name="comment_email" value="<mango:AuthorProperty email />" />
-			<input type="hidden" name="comment_website" value="<mango:Blog url />" />
-		</mango:AuthenticatedAuthor>
+	<form method="post" action="#respond" id="comment_form" class="well">
+		<fieldset>
+			<legend>Leave Your Comment</legend>
+			<input type="hidden" name="action" value="addComment" />
+			<input type="hidden" name="comment_post_id" value="<mango:PostProperty id />" />
+			<input type="hidden" name="comment_parent" value="" />
+			<mango:AuthenticatedAuthor ifIsLoggedIn>
+				<p>You are logged in as <span class="label label-info"><mango:AuthorProperty name /></span></p>
+				<input type="hidden" name="comment_name" value="<mango:AuthorProperty name />" />
+				<input type="hidden" name="comment_email" value="<mango:AuthorProperty email />" />
+				<input type="hidden" name="comment_website" value="<mango:Blog url />" />
+			</mango:AuthenticatedAuthor>
+			
+			<mango:AuthenticatedAuthor ifNotIsLoggedIn>
+			<p><input id="author" class="text_input form-control" type="text" name="comment_name" value="<mango:RequestVar name='comment_name' />" /><label for="author"><strong>Name</strong></label></p>
+			<p><input class="text_input form-control" type="text" id="email" name="comment_email" value="<mango:RequestVar name='comment_email' />" /><label for="email"><strong>Mail</strong> (it will not be displayed)</label></p>
+			<p><input class="text_input form-control" type="text" id="url" name="comment_website" size="30" value="<mango:RequestVar name='comment_website' />"  /><label for="url"><strong>Website</strong></label></p>
+			</mango:AuthenticatedAuthor>
+			
+			<p><textarea class="text_input text_area form-control" id="comment" name="comment_content" rows="7"><mango:RequestVar name="comment_content" /></textarea></p>
+			<p><input type="checkbox" id="subscribe" name="comment_subscribe" value="1" /> <label for="subscribe">Subscribe to this comment thread</label></p>
+			<p><mango:Event name="beforeCommentFormEnd" /></p>
+			<p><input name="submit" class="form_submit btn btn-primary" type="submit" id="submit" src="<mango:Blog skinurl />assets/images/submit_comment.gif" value="Submit" /></p>
+		</fieldset>
 		
-		<mango:AuthenticatedAuthor ifNotIsLoggedIn>
-		<p><input id="author" class="text_input" type="text" name="comment_name" value="<mango:RequestVar name='comment_name' />" /><label for="author"><strong>Name</strong></label></p>
-		<p><input class="text_input" type="text" id="email" name="comment_email" value="<mango:RequestVar name='comment_email' />" /><label for="email"><strong>Mail</strong> (it will not be displayed)</label></p>
-		<p><input class="text_input" type="text" id="url" name="comment_website" size="30" value="<mango:RequestVar name='comment_website' />"  /><label for="url"><strong>Website</strong></label></p>
-		</mango:AuthenticatedAuthor>
-		
-		<p><textarea class="text_input text_area" id="comment" name="comment_content" rows="7"><mango:RequestVar name="comment_content" /></textarea></p>
-		<p><input type="checkbox" id="subscribe" name="comment_subscribe" value="1" /> <label for="subscribe">Subscribe to this comment thread</label></p>
-		<p><mango:Event name="beforeCommentFormEnd" /></p>
-		<p><input name="submit" class="form_submit" type="submit" id="submit" src="<mango:Blog skinurl />assets/images/submit_comment.gif" value="Submit" /></p>
-		</form>
+	</form>
 </mango:PostProperty>
 		
 </div> <!-- Close #comments container -->
@@ -141,17 +198,17 @@
 				
 		</div>
 		
-<div id="sidebar">
+<!--- <div id="sidebar">
 	<ul class="sidebar_list">
 		<mangox:PodGroup locationId="sidebar" template="post">
 			<template:sidebar />
 		</mangox:PodGroup>	
 	</ul>
-	</div>
+	</div> --->
 	</div>
 
-	<div id="footer"><mango:Event name="afterFooterStart" />
-		<p><mango:Blog title /> &mdash; <a href="http://www.mangoblog.org" title="Mango Blog - A ColdFusion blog engine">Powered by Mango Blog</a> &mdash; Design by <a href="http://www.tubetorial.com">Chris Pearson</a> ported by <a href="http://www.asfusion.com">AsFusion</a></p>
+	<div id="footer" class="well well-lg"><mango:Event name="afterFooterStart" />
+		<p>2013 &dash; &reg; <mango:Blog title /> &mdash; Willmer Barahona Web Develpment &mdash; Proudly Honduran! <a target="_blank" href="http://www.visitehonduras.com">Visit Honduras</a></p>
 	<mango:Event name="beforeFooterEnd" />
 	</div>
 </div>

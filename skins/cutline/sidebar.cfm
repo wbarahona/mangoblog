@@ -30,7 +30,7 @@
 	<!--- search box --->
 	<mangox:TemplatePod id="search" title="Search It!">
 	<form name="searchForm" id="search_form" method="get" action="<mango:Blog searchUrl />">
-		<input type="text" class="search_input" name="term" value="To search, type and hit enter" id="term" onfocus="if (this.value == 'To search, type and hit enter') {this.value = '';}" onblur="if (this.value == '') {this.value = 'To search, type and hit enter';}" />
+		<input type="text" class="search_input" name="term" value="..." id="term" onfocus="if (this.value == '...') {this.value = '';}" onblur="if (this.value == '') {this.value = '...';}" />
 		<input type="hidden" id="searchsubmit" value="Search" />
 	</form>
 	</mangox:TemplatePod>
@@ -49,7 +49,7 @@
 	</mangox:TemplatePod>
 	
 <!--- all links by category --->
-	<mangox:TemplatePod id="links-by-category">
+	<!--- <mangox:TemplatePod id="links-by-category">
 		<mangox:LinkCategories>
 			<mangox:LinkCategory>
 			<li class="linkcat">
@@ -64,7 +64,7 @@
 				</ul>
 			</li>
 		</mangox:LinkCategories>
-	</mangox:TemplatePod>
+	</mangox:TemplatePod> --->
 	
 	
 	<!--- output all the pods, including the ones added by plugins --->
