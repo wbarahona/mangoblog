@@ -1,6 +1,7 @@
 <cfimport prefix="mango" taglib="../../tags/mango">
 <cfimport prefix="mangox" taglib="../../tags/mangoextras">
 <cfimport prefix="template" taglib=".">
+<cfset validPost = "YES" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head profile="http://gmpg.org/xfn/11">
@@ -79,10 +80,10 @@
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu<b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<mangox:PodGroup locationId="sidebar-page" template="page">
-								<mangox:TemplatePod id="page-menu" title="Page Menu">
-								<template:pageMenu />
-								</mangox:TemplatePod>
-								<template:sidebar />
+									<mangox:TemplatePod id="page-menu" title="Page Menu">
+										<template:pageMenu />
+									</mangox:TemplatePod>
+									<template:sidebar />
 								</mangox:PodGroup>
 							</ul>
 						</li>
@@ -124,29 +125,49 @@
 							<fb:like href="<mango:Blog url />/<mango:PageProperty link>" width="450" show_faces="true" send="true"></fb:like>
 						</div>
 					</div>
-
+					
+					<cfsavecontent variable="thisPageName">
+						<mango:PageProperty title />
+					</cfsavecontent>
 					<div class="posts panel panel-primary">
 						<div class="panel-heading">
 							<h3>Posts Related to <mango:PageProperty title />:</h3>
 						</div>
 						<div class="panel-body">
 							<mango:Posts count="10">
-								<mango:Post>	
-								<h2><a href="<mango:PostProperty link />" rel="bookmark" title="Permanent Link to <mango:PostProperty title />"><mango:PostProperty title /></a></h2>
-								<h4><mango:PostProperty date dateformat="mmmm dd, yyyy" /> &middot; By <mango:PostProperty author /> &middot; <mango:PostProperty ifcommentsallowed><a href="<mango:PostProperty link />#respond" title="Comment on <mango:PostProperty title />"><mango:PostProperty ifCommentCountGT="0"><mango:PostProperty commentCount /> Comment<mango:PostProperty ifCommentCountGT="1">s</mango:PostProperty></mango:PostProperty><mango:PostProperty ifCommentCountLT="1">No Comments</mango:PostProperty></a></mango:PostProperty></h4>
-								<div class="entry">
-									<mango:PostProperty ifhasExcerpt excerpt>
-									<p><a href="<mango:PostProperty link />" title="Read the rest of this entry">[Read more &rarr;]</a></p>
-									</mango:PostProperty>
-									<mango:PostProperty ifNotHasExcerpt body />
-								</div>
-								<div class="entry-footer entry">
-								<mango:Event name="beforePostContentEnd" template="index" mode="excerpt" />
-								</div>
-								<p class="tagged"><span class="add_comment label label-primary"><mango:PostProperty ifcommentsallowed>&rarr; <a href="<mango:PostProperty link />#respond" title="Comment on <mango:PostProperty title />"><mango:PostProperty ifCommentCountGT="0"><mango:PostProperty commentCount /> Comment<mango:PostProperty ifCommentCountGT="1">s</mango:PostProperty></mango:PostProperty><mango:PostProperty ifCommentCountLT="1">No Comments</mango:PostProperty></a></mango:PostProperty></span><strong>Tags:</strong> 
-								<mango:Categories><mango:Category><a href="<mango:CategoryProperty link />" title="View all posts in  <mango:CategoryProperty title />" rel="category tag" class="label label-success"><mango:CategoryProperty title /></a> <mango:Category ifCurrentIsNotLast>&middot; </mango:Category></mango:Category></mango:Categories>
-								</p>
-								<div class="clear"></div>
+								<mango:Post>
+									<mango:Categories>
+										<mango:Category>
+											<cfsavecontent variable="thisCategory">
+												<mango:CategoryProperty name />
+											</cfsavecontent>
+
+											<cfif TRIM(UCASE(thisPageName)) eq TRIM(UCASE(thisCategory)) AND validPost eq 'YES'>
+												<cfset validPost = 'YES'/>
+											<cfelse>
+												<cfset validPost = 'NO'/>
+											</cfif>
+										</mango:Category>
+									</mango:Categories>
+									<cfif validPost>
+										<h2><a href="<mango:PostProperty link />" rel="bookmark" title="Permanent Link to <mango:PostProperty title />"><mango:PostProperty title /></a></h2>
+										<h4><mango:PostProperty date dateformat="mmmm dd, yyyy" /> &middot; By <mango:PostProperty author /> &middot; <mango:PostProperty ifcommentsallowed><a href="<mango:PostProperty link />#respond" title="Comment on <mango:PostProperty title />"><mango:PostProperty ifCommentCountGT="0"><mango:PostProperty commentCount /> Comment<mango:PostProperty ifCommentCountGT="1">s</mango:PostProperty></mango:PostProperty><mango:PostProperty ifCommentCountLT="1">No Comments</mango:PostProperty></a></mango:PostProperty></h4>
+										<div class="entry">
+											<mango:PostProperty ifhasExcerpt excerpt>
+											<p><a href="<mango:PostProperty link />" title="Read the rest of this entry">[Read more &rarr;]</a></p>
+											</mango:PostProperty>
+											<mango:PostProperty ifNotHasExcerpt body />
+										</div>
+										<div class="entry-footer entry">
+										<mango:Event name="beforePostContentEnd" template="index" mode="excerpt" />
+										</div>
+										<p class="tagged"><span class="add_comment label label-primary"><mango:PostProperty ifcommentsallowed>&rarr; <a href="<mango:PostProperty link />#respond" title="Comment on <mango:PostProperty title />"><mango:PostProperty ifCommentCountGT="0"><mango:PostProperty commentCount /> Comment<mango:PostProperty ifCommentCountGT="1">s</mango:PostProperty></mango:PostProperty><mango:PostProperty ifCommentCountLT="1">No Comments</mango:PostProperty></a></mango:PostProperty></span><strong>Tags:</strong> 
+										<mango:Categories><mango:Category><a href="<mango:CategoryProperty link />" title="View all posts in  <mango:CategoryProperty title />" rel="category tag" class="label label-success"><mango:CategoryProperty title /></a> <mango:Category ifCurrentIsNotLast>&middot; </mango:Category></mango:Category></mango:Categories>
+										</p>
+										<div class="clear"></div>
+									<cfelse>
+										<p>We couln't find any post related to this Page topic</p>
+									</cfif>
 								</mango:Post>
 							</mango:Posts>
 						</div>	
