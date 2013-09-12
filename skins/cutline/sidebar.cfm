@@ -12,7 +12,7 @@
 		</mango:Post>
 		</mango:Posts>
 		<mango:Archive pageSize="5"><mango:ArchiveProperty ifHasNextPage>
-		<li><a href="<mango:ArchiveProperty link />" title="Visit the archives!">Visit the archives for more!</a></li></mango:ArchiveProperty></mango:Archive>
+		<li><a href="<mango:ArchiveProperty link />" title="Visit the archives!">Pas&aacute;sate por los archivos por mas!</a></li></mango:ArchiveProperty></mango:Archive>
 	</ul>
 	</mangox:TemplatePod>
 	
@@ -30,7 +30,7 @@
 	<!--- search box --->
 	<mangox:TemplatePod id="search" title="Search It!">
 	<form name="searchForm" id="search_form" method="get" action="<mango:Blog searchUrl />">
-		<input type="text" class="search_input" name="term" value="..." id="term" onfocus="if (this.value == '...') {this.value = '';}" onblur="if (this.value == '') {this.value = '...';}" />
+		<input type="text" class="search_input form-control" name="term" value="Buscar..." id="term" onfocus="if (this.value == 'Buscar...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Buscar...';}" />
 		<input type="hidden" id="searchsubmit" value="Search" />
 	</form>
 	</mangox:TemplatePod>

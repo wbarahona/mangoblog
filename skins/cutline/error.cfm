@@ -59,7 +59,7 @@
 				</div>
 				<div class="panel-body">
 					<p class="text-warning"><mango:Message text /><mango:Message data /></p><br />
-					<p class="text-warning">Please lemme know what happened to my <a href="mailto:errors-wbarahona@gmail.com" class="label label-warning">mailbox</a></p>
+					<p class="text-warning">Porfavor hazme saber que paso. Enviame un <a href="mailto:errors-wbarahona@gmail.com" class="label label-warning">correo</a></p>
 				</div>
 			</div>
 			<div class="clear"></div>

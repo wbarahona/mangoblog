@@ -61,7 +61,7 @@
 		<li class="rss"><a href="<mango:Blog rssurl />">RSS</a></li>
 		<li>
 			<form name="searchForm" id="search_form" method="get" action="<mango:Blog searchUrl />" class="navbar-form navbar-left">
-				<input type="text" class="search_input form-control" name="term" value="Search It" id="term" onfocus="if (this.value == 'Search It') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search It';}" />
+				<input type="text" class="search_input form-control" name="term" value="Buscar..." id="term" onfocus="if (this.value == 'Buscar...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Buscar...';}" />
 				<input type="hidden" id="searchsubmit" value="Search" />
 			</form>
 		</li>

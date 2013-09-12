@@ -63,14 +63,14 @@
 			</div>
 
 			<ul id="nav" class="navbar navbar-default nav">
-				<li><a href="<mango:Blog basePath />">front page</a></li>
+				<li><a href="<mango:Blog basePath />">inicio</a></li>
 				<mango:Pages parentPage=""><mango:Page>
 					<li><a href="<mango:PageProperty link>" title="<mango:PageProperty title />"><mango:PageProperty title /></a></li>
 				</mango:Page></mango:Pages>
 				<li class="rss"><a href="<mango:Blog rssurl />">RSS</a></li>
 				<li>
 					<form name="searchForm" id="search_form" method="get" action="<mango:Blog searchUrl />" class="navbar-form navbar-left">
-						<input type="text" class="search_input form-control" name="term" value="Search It" id="term" onfocus="if (this.value == 'Search It') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search It';}" />
+						<input type="text" class="search_input form-control" name="term" value="Buscar..." id="term" onfocus="if (this.value == 'Buscar...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Buscar...';}" />
 						<input type="hidden" id="searchsubmit" value="Search" />
 					</form>
 				</li>
@@ -103,11 +103,11 @@
 					<div class="entry-footer entry">
 						<mango:Event name="beforePageContentEnd" template="page" mode="full" />
 					</div>
-					<p class="tagged"><mango:PageProperty ifcommentsallowed><a href="<mango:PageProperty link />#comments" title="Comment on <mango:PageProperty title />"><mango:PageProperty ifCommentCountGT="0"><mango:PageProperty commentCount /> Comment<mango:PageProperty ifCommentCountGT="1">s</mango:PageProperty></mango:PageProperty><mango:PageProperty ifCommentCountLT="1">No Comments</mango:PageProperty></a></mango:PageProperty></p>
+					<p class="tagged"><mango:PageProperty ifcommentsallowed><a href="<mango:PageProperty link />#comments" title="Comment on <mango:PageProperty title />"><mango:PageProperty ifCommentCountGT="0"><mango:PageProperty commentCount /> Commentario<mango:PageProperty ifCommentCountGT="1">s</mango:PageProperty></mango:PageProperty><mango:PageProperty ifCommentCountLT="1">Sin Comentario</mango:PageProperty></a></mango:PageProperty></p>
 					<div class="clear"></div>
 
 					<div class="social-box panel panel-default">
-						<h5 class="panel-heading">Do you find this page relevant? Share it now:</h5>
+						<h5 class="panel-heading">Te parecio relevante esta pagina? Compart&iacute;la:</h5>
 						<div class="share-box panel-body">
 							<!-- Place this tag where you want the share button to render. -->
 							<div class="g-plus" data-action="share" data-annotation="bubble"></div>
@@ -131,7 +131,7 @@
 					</cfsavecontent>
 					<div class="posts panel panel-primary">
 						<div class="panel-heading">
-							<h3>Posts Related to <mango:PageProperty title />:</h3>
+							<h3>Entradas relacionadas a <mango:PageProperty title />:</h3>
 						</div>
 						<div class="panel-body">
 							<mango:Posts count="10">
@@ -151,22 +151,22 @@
 									</mango:Categories>
 									<cfif validPost>
 										<h2><a href="<mango:PostProperty link />" rel="bookmark" title="Permanent Link to <mango:PostProperty title />"><mango:PostProperty title /></a></h2>
-										<h4><mango:PostProperty date dateformat="mmmm dd, yyyy" /> &middot; By <mango:PostProperty author /> &middot; <mango:PostProperty ifcommentsallowed><a href="<mango:PostProperty link />#respond" title="Comment on <mango:PostProperty title />"><mango:PostProperty ifCommentCountGT="0"><mango:PostProperty commentCount /> Comment<mango:PostProperty ifCommentCountGT="1">s</mango:PostProperty></mango:PostProperty><mango:PostProperty ifCommentCountLT="1">No Comments</mango:PostProperty></a></mango:PostProperty></h4>
+										<h4><mango:PostProperty date dateformat="mmmm dd, yyyy" /> &middot; Por <mango:PostProperty author /> &middot; <mango:PostProperty ifcommentsallowed><a href="<mango:PostProperty link />#respond" title="Comment on <mango:PostProperty title />"><mango:PostProperty ifCommentCountGT="0"><mango:PostProperty commentCount /> Commentario<mango:PostProperty ifCommentCountGT="1">s</mango:PostProperty></mango:PostProperty><mango:PostProperty ifCommentCountLT="1">Sin Comentario</mango:PostProperty></a></mango:PostProperty></h4>
 										<div class="entry">
 											<mango:PostProperty ifhasExcerpt excerpt>
-											<p><a href="<mango:PostProperty link />" title="Read the rest of this entry">[Read more &rarr;]</a></p>
+											<p><a href="<mango:PostProperty link />" title="Read the rest of this entry">[Leer mas &rarr;]</a></p>
 											</mango:PostProperty>
 											<mango:PostProperty ifNotHasExcerpt body />
 										</div>
 										<div class="entry-footer entry">
 										<mango:Event name="beforePostContentEnd" template="index" mode="excerpt" />
 										</div>
-										<p class="tagged"><span class="add_comment label label-primary"><mango:PostProperty ifcommentsallowed>&rarr; <a href="<mango:PostProperty link />#respond" title="Comment on <mango:PostProperty title />"><mango:PostProperty ifCommentCountGT="0"><mango:PostProperty commentCount /> Comment<mango:PostProperty ifCommentCountGT="1">s</mango:PostProperty></mango:PostProperty><mango:PostProperty ifCommentCountLT="1">No Comments</mango:PostProperty></a></mango:PostProperty></span><strong>Tags:</strong> 
+										<p class="tagged"><span class="add_comment label label-primary"><mango:PostProperty ifcommentsallowed>&rarr; <a href="<mango:PostProperty link />#respond" title="Comment on <mango:PostProperty title />"><mango:PostProperty ifCommentCountGT="0"><mango:PostProperty commentCount /> Commentario<mango:PostProperty ifCommentCountGT="1">s</mango:PostProperty></mango:PostProperty><mango:PostProperty ifCommentCountLT="1">Sin Comentario</mango:PostProperty></a></mango:PostProperty></span><strong>Tags:</strong> 
 										<mango:Categories><mango:Category><a href="<mango:CategoryProperty link />" title="View all posts in  <mango:CategoryProperty title />" rel="category tag" class="label label-success"><mango:CategoryProperty title /></a> <mango:Category ifCurrentIsNotLast>&middot; </mango:Category></mango:Category></mango:Categories>
 										</p>
 										<div class="clear"></div>
 									<cfelse>
-										<p>We couln't find any post related to this Page topic</p>
+										<p>No encontramos entradas relacionadas al tema de la pagina.</p>
 									</cfif>
 								</mango:Post>
 							</mango:Posts>
@@ -176,7 +176,7 @@
 					<div id="comments">
 						<mango:PageProperty ifcommentsallowed>
 
-							<h3 class="comments_headers"><mango:PageProperty commentCount /> response<mango:PageProperty ifCommentCountGT="1">s</mango:PageProperty><mango:PageProperty ifCommentCountLT="1">s</mango:PageProperty><mango:PageProperty ifcommentsallowed> so far &darr;</mango:PageProperty></h3>
+							<h3 class="comments_headers"><mango:PageProperty commentCount /> respuesta<mango:PageProperty ifCommentCountGT="1">s</mango:PageProperty><mango:PageProperty ifCommentCountLT="1">s</mango:PageProperty><mango:PageProperty ifcommentsallowed> al tema &darr;</mango:PageProperty></h3>
 
 							<ul id="comment_list">
 								<mango:Comments>
@@ -185,7 +185,7 @@
 											<p class="comment_meta">
 												<span class="comment_num"><a href="#comment-<mango:CommentProperty id />" title="Permalink to this comment"><mango:CommentProperty currentCount /></a></span>
 												<strong><mango:CommentProperty ifhasurl><a href='<mango:CommentProperty url />' rel='external nofollow'></mango:CommentProperty><mango:CommentProperty name /><mango:CommentProperty ifhasurl></a></mango:CommentProperty> </strong>
-												<span class="comment_time">// <mango:CommentProperty date dateformat="mmm d, yyyy" /> at <mango:CommentProperty time /></span>
+												<span class="comment_time">// <mango:CommentProperty date dateformat="mmm d, yyyy" /> el <mango:CommentProperty time /></span>
 											</p>
 											<div class="entry">
 												<mango:CommentProperty content />
@@ -198,7 +198,7 @@
 									<!-- If comments are open, but there are no comments. -->
 									<li class="comment">
 										<div class="entry">
-											<p>There are no comments yet...Kick things off by filling out the form below.</p>
+											<p>Nadie a comentado aun... Dej&aacute; tu comentario!.</p>
 										</div>
 									</li>
 								</mango:PageProperty>
@@ -209,39 +209,39 @@
 							<mango:Message ifMessageExists type="comment" status="error">
 								<div class="alert alert-dismissable alert-danger">
 									<button type="button" class="close" data-dismiss="alert">×</button>
-									<strong>Oh Snap!</strong><mango:Message text />
+									<strong>H&iacute;jole!</strong><mango:Message text />
 								</div>
 							</mango:Message>
 							<mango:Message ifMessageExists type="comment" status="success">
 								<div class="alert alert-dismissable alert-success">
 									<button type="button" class="close" data-dismiss="alert">×</button>
-									<strong>Oh Snap!</strong><mango:Message text />
+									<strong>Masiso!</strong><mango:Message text />
 								</div>
 							</mango:Message>
 
 							<form method="post" action="#respond" id="comment_form" class="well">
 								<fieldset>
-									<legend>Leave your comment about this:</legend>
+									<legend>Dej&aacute; tu comentario:</legend>
 									<input type="hidden" name="action" value="addComment" />
 									<input type="hidden" name="comment_post_id" value="<mango:PageProperty id />" />
 									<input type="hidden" name="comment_parent" value="" />
 									<mango:AuthenticatedAuthor ifIsLoggedIn>
-										<p>You are logged in as <span class="label label-info"><mango:AuthorProperty name /></span></p>
+										<p>Est&aacute;s loggeado como <span class="label label-info"><mango:AuthorProperty name /></span></p>
 										<input type="hidden" name="comment_name" value="<mango:AuthorProperty name />" />
 										<input type="hidden" name="comment_email" value="<mango:AuthorProperty email />" />
 										<input type="hidden" name="comment_website" value="<mango:Blog url />" />
 									</mango:AuthenticatedAuthor>
 
 									<mango:AuthenticatedAuthor ifNotIsLoggedIn>
-										<p><input id="author" class="text_input form-control" type="text" name="comment_name" value="<mango:RequestVar name='comment_name' />" /><label for="author"><strong>Name</strong></label></p>
-										<p><input class="text_input form-control" type="text" id="email" name="comment_email" value="<mango:RequestVar name='comment_email' />" /><label for="email"><strong>Mail</strong> (it will not be displayed)</label></p>
+										<p><input id="author" class="text_input form-control" type="text" name="comment_name" value="<mango:RequestVar name='comment_name' />" /><label for="author"><strong>Nombre</strong></label></p>
+										<p><input class="text_input form-control" type="text" id="email" name="comment_email" value="<mango:RequestVar name='comment_email' />" /><label for="email"><strong>Correo</strong> (nambe no lo vamos a publicar)</label></p>
 										<p><input class="text_input form-control" type="text" id="url" name="comment_website" size="30" value="<mango:RequestVar name='comment_website' />"  /><label for="url"><strong>Website</strong></label></p>
 									</mango:AuthenticatedAuthor>
 
 									<p><textarea class="text_input text_area form-control" id="comment" name="comment_content" rows="7"><mango:RequestVar name="comment_content" /></textarea></p>
-									<p><input type="checkbox" id="subscribe" name="comment_subscribe" value="1" /> <label for="subscribe">Subscribe to this comment thread</label></p>
+									<p><input type="checkbox" id="subscribe" name="comment_subscribe" value="1" /> <label for="subscribe">Suscrub&iacute;te a este post</label></p>
 									<p><mango:Event name="beforeCommentFormEnd" /></p>
-									<p><input name="submit" class="form_submit btn btn-primary" type="submit" id="submit" src="<mango:Blog skinurl />assets/images/submit_comment.gif" value="Submit" /></p>
+									<p><input name="submit" class="form_submit btn btn-primary" type="submit" id="submit" src="<mango:Blog skinurl />assets/images/submit_comment.gif" value="Envi&aacute;lo" /></p>
 								</fieldset>
 
 							</form>

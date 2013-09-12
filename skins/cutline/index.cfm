@@ -45,7 +45,7 @@
 	</div>
 
 	<ul id="nav" class="navbar navbar-default nav">
-		<li class="active"><a class="current" href="<mango:Blog basePath />">front page</a></li>
+		<li class="active"><a class="current" href="<mango:Blog basePath />">inicio</a></li>
 		<mango:Pages><mango:Page>
 			<li><a href="<mango:PageProperty link>" title="<mango:PageProperty title />">
 				<mango:PageProperty title /></a></li>
@@ -53,7 +53,7 @@
 		<li class="rss"><a href="<mango:Blog rssurl />">RSS</a></li>
 		<li>
 			<form name="searchForm" id="search_form" method="get" action="<mango:Blog searchUrl />" class="navbar-form navbar-left">
-				<input type="text" class="search_input form-control" name="term" value="Search It" id="term" onfocus="if (this.value == 'Search It') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search It';}" />
+				<input type="text" class="search_input form-control" name="term" value="Buscar..." id="term" onfocus="if (this.value == 'Buscar...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Buscar...';}" />
 				<input type="hidden" id="searchsubmit" value="Search" />
 			</form>
 		</li>
@@ -83,17 +83,17 @@
 		<mango:Posts count="10">
 			<mango:Post>	
 			<h2><a href="<mango:PostProperty link />" rel="bookmark" title="Permanent Link to <mango:PostProperty title />"><mango:PostProperty title /></a></h2>
-			<h4><mango:PostProperty date dateformat="mmmm dd, yyyy" /> &middot; By <mango:PostProperty author /> &middot; <mango:PostProperty ifcommentsallowed><a href="<mango:PostProperty link />#respond" title="Comment on <mango:PostProperty title />"><mango:PostProperty ifCommentCountGT="0"><mango:PostProperty commentCount /> Comment<mango:PostProperty ifCommentCountGT="1">s</mango:PostProperty></mango:PostProperty><mango:PostProperty ifCommentCountLT="1">No Comments</mango:PostProperty></a></mango:PostProperty></h4>
+			<h4><mango:PostProperty date dateformat="mmmm dd, yyyy" /> &middot; Por <mango:PostProperty author /> &middot; <mango:PostProperty ifcommentsallowed><a href="<mango:PostProperty link />#respond" title="Comment on <mango:PostProperty title />"><mango:PostProperty ifCommentCountGT="0"><mango:PostProperty commentCount /> Commentario<mango:PostProperty ifCommentCountGT="1">s</mango:PostProperty></mango:PostProperty><mango:PostProperty ifCommentCountLT="1">Sin Comentario</mango:PostProperty></a></mango:PostProperty></h4>
 			<div class="entry">
 				<mango:PostProperty ifhasExcerpt excerpt>
-				<p><a href="<mango:PostProperty link />" title="Read the rest of this entry">[Read more &rarr;]</a></p>
+				<p><a href="<mango:PostProperty link />" title="Read the rest of this entry">[Leer Mas &rarr;]</a></p>
 				</mango:PostProperty>
 				<mango:PostProperty ifNotHasExcerpt body />
 			</div>
 			<div class="entry-footer entry">
 			<mango:Event name="beforePostContentEnd" template="index" mode="excerpt" />
 			</div>
-			<p class="tagged"><span class="add_comment label label-primary"><mango:PostProperty ifcommentsallowed>&rarr; <a href="<mango:PostProperty link />#respond" title="Comment on <mango:PostProperty title />"><mango:PostProperty ifCommentCountGT="0"><mango:PostProperty commentCount /> Comment<mango:PostProperty ifCommentCountGT="1">s</mango:PostProperty></mango:PostProperty><mango:PostProperty ifCommentCountLT="1">No Comments</mango:PostProperty></a></mango:PostProperty></span><strong>Tags:</strong> 
+			<p class="tagged"><span class="add_comment label label-primary"><mango:PostProperty ifcommentsallowed>&rarr; <a href="<mango:PostProperty link />#respond" title="Comment on <mango:PostProperty title />"><mango:PostProperty ifCommentCountGT="0"><mango:PostProperty commentCount /> Commentario<mango:PostProperty ifCommentCountGT="1">s</mango:PostProperty></mango:PostProperty><mango:PostProperty ifCommentCountLT="1">Sin Comentario</mango:PostProperty></a></mango:PostProperty></span><strong>Tags:</strong> 
 			<mango:Categories><mango:Category><a href="<mango:CategoryProperty link />" title="View all posts in  <mango:CategoryProperty title />" rel="category tag" class="label label-success"><mango:CategoryProperty title /></a> <mango:Category ifCurrentIsNotLast>&middot; </mango:Category></mango:Category></mango:Categories>
 			</p>
 			<div class="clear"></div>
@@ -102,7 +102,7 @@
 			
 <mango:Archive pageSize="10">
 <div class="navigation">
-	<div class="previous"><mango:ArchiveProperty ifHasNextPage><a class="previous" href="<mango:ArchiveProperty link pageDifference="1" />">&larr; Previous Entries</a></mango:ArchiveProperty></div>
+	<div class="previous"><mango:ArchiveProperty ifHasNextPage><a class="previous" href="<mango:ArchiveProperty link pageDifference="1" />">&larr; Entradas Anteriores</a></mango:ArchiveProperty></div>
 	<div class="next"></div>
 </div>
 </mango:Archive>

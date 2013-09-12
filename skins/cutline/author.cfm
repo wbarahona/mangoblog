@@ -50,7 +50,7 @@
 	</div>
 
 	<ul id="nav" class="navbar navbar-default nav">
-		<li><a class="current" href="<mango:Blog basePath />">front page</a></li>
+		<li><a class="current" href="<mango:Blog basePath />">inicio</a></li>
 		<mango:Pages><mango:Page>
 			<li><a href="<mango:PageProperty link>" title="<mango:PageProperty title />">
 				<mango:PageProperty title /></a></li>
@@ -58,7 +58,7 @@
 		<li class="rss"><a href="<mango:Blog rssurl />">RSS</a></li>
 		<li>
 			<form name="searchForm" id="search_form" method="get" action="<mango:Blog searchUrl />" class="navbar-form navbar-left">
-				<input type="text" class="search_input form-control" name="term" value="Search It" id="term" onfocus="if (this.value == 'Search It') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search It';}" />
+				<input type="text" class="search_input form-control" name="term" value="Buscar..." id="term" onfocus="if (this.value == 'Buscar...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Buscar...';}" />
 				<input type="hidden" id="searchsubmit" value="Search" />
 			</form>
 		</li>
@@ -70,11 +70,11 @@
 	<div id="content_box">
 	
 		<div id="content" class="pages">
-			<h2>About <mango:AuthorProperty name /></h2>
+			<h2>Acerca <mango:AuthorProperty name /></h2>
 			<div class="entry">
 			<mango:AuthorProperty description />
 			
-			<h3>Recent entries by <mango:AuthorProperty name /></h3>
+			<h3>Articulos recientes por <mango:AuthorProperty name /></h3>
 			<ul>
 			<mango:Posts count="10">
 				<mango:Post>
